@@ -10,6 +10,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>PTravel-start</module>
+        <module>PTravel-controller</module>
+        <module>PTravel-domain</module>
+        <module>PTravel-infrastructure</module>
     </modules>
 
     <properties>
