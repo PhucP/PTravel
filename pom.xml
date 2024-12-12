@@ -13,6 +13,7 @@
         <module>PTravel-controller</module>
         <module>PTravel-domain</module>
         <module>PTravel-infrastructure</module>
+        <module>PTravel-application</module>
     </modules>
 
     <properties>
