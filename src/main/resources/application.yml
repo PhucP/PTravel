@@ -1,0 +1,22 @@
+server:
+  port: 1122
+
+spring:
+  application:
+    name: PTravel
+  datasource:
+    url: jdbc:mysql://localhost:33060/PTravel
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+
