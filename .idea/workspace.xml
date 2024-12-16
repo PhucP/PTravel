@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="964e1b84-7984-40ba-a0a2-41fe995b1914" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-application/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-application/src/main/java/com/PTravel/DDD/application/dto/user/CreateUserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-application/src/main/java/com/PTravel/DDD/application/dto/user/FindUserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-application/src/main/java/com/PTravel/DDD/application/dto/user/UpdateUserDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-application/src/main/java/com/PTravel/DDD/application/service/user/UserAppService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-application/src/main/java/com/PTravel/DDD/application/service/user/impl/UserAppServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-controller/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-controller/src/main/java/com/PTravel/DDD/controller/http/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Route.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Seat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Station.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Ticket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/Train.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/enums/RoleEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/model/valueobject/UserSearchCriteria.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/HiDomainRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/PaymentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/RouteRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/ScheduleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/SeatRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/StationRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/TicketRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/TrainRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/service/UserDomainService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-domain/src/main/java/com/PTravel/DDD/domain/service/impl/UserDomainServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-infrastructure/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-infrastructure/src/main/java/com/PTravel/DDD/infrastructure/config/RedisConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-infrastructure/src/main/java/com/PTravel/DDD/infrastructure/persistence/mapper/UserJPAMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-infrastructure/src/main/java/com/PTravel/DDD/infrastructure/persistence/repository/UserInfrasRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-start/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-start/src/main/java/com/PTravel/StartApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PTravel-start/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Enum" />
+        <option value="Exception" />
+        <option value="Interface" />
+        <option value="Kotlin Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2q4hciFzJfjoooFSdBrDpWLXfHg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.generated-requests | #1.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.StartApplication.executor": "Run",
+    "git-widget-placeholder": "mvc",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Learning/Web/Java/Projects/New folder/xxxx.com-section-ddd-09",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "terminal",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.PTravel.DDD.domain.model.enum" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Learning\Web\Java\Projects\PTravel" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="PTravel.com" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="PTravel.com" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="StartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-23" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="PTravel.com" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.PTravel" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.PTravel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.StartApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="964e1b84-7984-40ba-a0a2-41fe995b1914" name="Changes" comment="" />
+      <created>1733927836895</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733927836895</updated>
+      <workItem from="1733927838129" duration="5769000" />
+      <workItem from="1733978116582" duration="1027000" />
+      <workItem from="1733985478112" duration="3334000" />
+      <workItem from="1734019276697" duration="4482000" />
+      <workItem from="1734073508244" duration="13329000" />
+      <workItem from="1734087350103" duration="5214000" />
+      <workItem from="1734160544590" duration="11030000" />
+      <workItem from="1734192840396" duration="4522000" />
+      <workItem from="1734251307151" duration="3466000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
