@@ -16,7 +16,7 @@ import java.util.List;
 public class Train{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
 
     private String name;
     private int capacity;

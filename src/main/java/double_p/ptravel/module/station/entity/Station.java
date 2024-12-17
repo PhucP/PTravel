@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Station {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    protected Long id;
+    private Long id;
 
     private String name;
     private String code;
