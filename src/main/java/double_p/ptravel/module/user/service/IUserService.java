@@ -1,7 +1,9 @@
 package double_p.ptravel.module.user.service;
 
-import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import double_p.ptravel.module.user.dto.CreateUserDto;
 import double_p.ptravel.module.user.dto.LoginUserDto;
@@ -19,9 +21,9 @@ public interface IUserService {
 
     public String remove(Long userId);
 
-    public List<User> getAllUsers();
+    public Page<User> findAll(Pageable pageable);
 
-    public List<User> searchUser(SearchUserDto dto);
+    public Page<User> searchUser(SearchUserDto dto, Pageable pageable);
 
     public void login(LoginUserDto dto);
 }

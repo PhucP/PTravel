@@ -7,15 +7,13 @@ import double_p.ptravel.module.user.dto.UpdateUserDto;
 import double_p.ptravel.module.user.entity.User;
 import double_p.ptravel.module.user.service.IUserService;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.List;
 import java.util.Optional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
-
 
 @RestController
 @RequestMapping("/user")
@@ -49,13 +47,30 @@ public class UserController {
      }
 
      @GetMapping("/all")
-     public List<User> getAllUser() {
-         return userService.getAllUsers();
+     public Page<User> getAllUser(
+        @RequestParam int page,
+        @RequestParam int size ,
+        @RequestParam(defaultValue = "id") String sort,
+        @RequestParam(defaultValue = "desc") String direction
+     ) {
+        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC: Sort.Direction.DESC;
+        Sort sortBy = Sort.by(sortDirection, sort);
+        Pageable pageable = PageRequest.of(page, size, sortBy);
+        return userService.findAll(pageable);
      }
      
      @GetMapping("/search")
-     public List<User> getMethodName(@RequestBody SearchUserDto dto) {
-         return userService.searchUser(dto);
+     public Page<User> getMethodName(
+        @RequestBody SearchUserDto dto,
+        @RequestParam int page,
+        @RequestParam int size ,
+        @RequestParam(defaultValue = "id") String sort,
+        @RequestParam(defaultValue = "desc") String direction
+    ) {
+        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC: Sort.Direction.DESC;
+        Sort sortBy = Sort.by(sortDirection, sort);
+        Pageable pageable = PageRequest.of(page, size, sortBy);
+        return userService.searchUser(dto, pageable);
      }
 
      @PostMapping("/login")

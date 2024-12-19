@@ -2,8 +2,11 @@ package double_p.ptravel.module.train.service.impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import double_p.ptravel.module.seat.entity.Seat;
 import double_p.ptravel.module.train.dto.CreateTrainDto;
 import double_p.ptravel.module.train.dto.SearchTrainDto;
 import double_p.ptravel.module.train.dto.UpdateTrainDto;
@@ -25,8 +28,8 @@ public class TrainService implements ITrainService{
     }
 
     @Override
-    public List<Train> search(SearchTrainDto dto) {
-        return trainRepository.searchTrain(dto);
+    public Page<Train> search(SearchTrainDto dto, Pageable pageable) {
+        return trainRepository.searchTrain(dto, pageable);
     }
 
     @Override
@@ -51,7 +54,13 @@ public class TrainService implements ITrainService{
     }
 
     @Override
-    public void delete(Long trainId) {
+    public String delete(Long trainId) {
         trainRepository.deleteById(trainId);
+        return "Train with id " + trainId + " has been deleted";
+    }
+
+    @Override
+    public Page<Train> findAll(Pageable pageable) {
+        return trainRepository.findAll(pageable);
     }
 }

@@ -1,5 +1,7 @@
 package double_p.ptravel.module.seat.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import double_p.ptravel.module.train.entity.Train;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,5 +24,6 @@ public class Seat {
 
     @ManyToOne
     @JoinColumn(name = "train_id", nullable = false)
+    @JsonBackReference
     private Train train;
-}
+} 

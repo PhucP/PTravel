@@ -20,9 +20,10 @@ public class Route {
     private int duration;
 
     @ManyToOne
-    @JoinColumn(name = "station_id", nullable = false)
+    @JoinColumn(name = "origin_station_id", nullable = false)
     private Station originStation;
 
     @ManyToOne
+    @JoinColumn(name = "destination_station_id", nullable = false)
     private Station destinationStation;
 }

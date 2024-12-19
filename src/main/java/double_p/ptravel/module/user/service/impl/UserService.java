@@ -8,6 +8,8 @@ import double_p.ptravel.module.user.entity.User;
 import double_p.ptravel.module.user.repository.IUserRepository;
 import double_p.ptravel.module.user.service.IUserService;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,13 +62,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public Page<User> findAll(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     @Override
-    public List<User> searchUser(SearchUserDto dto) {
-       return userRepository.searchUser(dto);
+    public Page<User> searchUser(SearchUserDto dto, Pageable pageable) {
+       return userRepository.searchUser(dto, pageable);
     }
 
     @Override

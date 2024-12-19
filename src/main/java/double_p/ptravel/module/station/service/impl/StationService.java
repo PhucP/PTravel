@@ -2,6 +2,8 @@ package double_p.ptravel.module.station.service.impl;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import double_p.ptravel.module.station.dto.CreateStationDto;
@@ -12,7 +14,7 @@ import double_p.ptravel.module.station.repository.IStationRepository;
 import double_p.ptravel.module.station.service.IStationService;
 
 @Service
-public class StationService implements IStationService{
+public class StationService implements IStationService {
     private final IStationRepository stationRepository;
 
     public StationService(IStationRepository stationRepository) {
@@ -21,38 +23,51 @@ public class StationService implements IStationService{
 
     @Override
     public Station findById(Long stationId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return stationRepository.findById(stationId).orElse(null);
     }
 
     @Override
     public Station create(CreateStationDto dto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'create'");
+        Station station = new Station();
+        station.setAddress(dto.getAddress());
+        station.setCity(dto.getCity());
+        station.setCode(dto.getCode());
+        station.setName(dto.getName());
+
+        return stationRepository.save(station);
     }
 
     @Override
     public String delete(Long stationId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        stationRepository.deleteById(stationId);
+        return "Station with id " + stationId + " has been deleted";
     }
 
     @Override
-    public List<Station> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+    public Page<Station> findAll(Pageable pageable) {
+        return stationRepository.findAll(pageable);
     }
 
     @Override
-    public List<Station> search(SearchStationDto dto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'search'");
+    public Page<Station> search(SearchStationDto dto, Pageable pageable) {
+        return stationRepository.search(dto, pageable);
     }
 
     @Override
     public Station update(Long stationId, UpdateStationDto dto) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        Station station = findById(stationId);
+        if(station!= null) {
+            station.setAddress(dto.getAddress());
+            station.setCity(dto.getCity());
+            station.setCode(dto.getCode());
+            station.setName(dto.getName());
+        }
+
+        return null;
     }
 
+    @Override
+    public Station findByName(String name) {
+        return stationRepository.findByName(name).orElse(null);
+    }
 }
