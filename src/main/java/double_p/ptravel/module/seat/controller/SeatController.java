@@ -23,29 +23,28 @@ import double_p.ptravel.module.seat.service.ISeatService;
 @RequestMapping("/seat")
 public class SeatController {
     private final ISeatService seatService;
-    
+
     public SeatController(ISeatService seatService) {
         this.seatService = seatService;
     }
 
-    @GetMapping("/{seatId}")
+    @GetMapping("/getSeat/{seatId}")
     public Seat findById(Long seatId) {
         return seatService.findById(seatId).orElse(null);
     }
 
     @PostMapping("/search")
     public Page<Seat> search(
-        @RequestBody SearchSeatDto dto,
-        @RequestParam int page,
-        @RequestParam int size ,
-        @RequestParam(defaultValue = "id") String sort,
-        @RequestParam(defaultValue = "desc") String direction
-        ) {
-        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC: Sort.Direction.DESC;
+            @RequestBody SearchSeatDto dto,
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam(defaultValue = "id") String sort,
+            @RequestParam(defaultValue = "desc") String direction) {
+        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
         Sort sortBy = Sort.by(sortDirection, sort);
         Pageable pageable = PageRequest.of(page, size, sortBy);
         return seatService.search(dto, pageable);
-    } 
+    }
 
     @PostMapping("/create")
     public Seat create(@RequestBody CreateSeatDto dto) {
@@ -58,7 +57,7 @@ public class SeatController {
     }
 
     @PatchMapping("/update/{seatId}")
-    public Seat update(Long seatId, @RequestBody UpdateSeatDto dto)  {
+    public Seat update(Long seatId, @RequestBody UpdateSeatDto dto) {
         return seatService.update(seatId, dto);
     }
 }

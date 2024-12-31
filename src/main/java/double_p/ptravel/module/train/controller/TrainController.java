@@ -21,8 +21,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
-
 @RestController
 @RequestMapping("/train")
 public class TrainController {
@@ -32,7 +30,7 @@ public class TrainController {
         this.trainService = trainService;
     }
 
-    @GetMapping("/{trainId}")
+    @GetMapping("/getTrain/{trainId}")
     public Train findById(@PathVariable Long trainId) {
         return trainService.findbyId(trainId);
     }
@@ -41,7 +39,7 @@ public class TrainController {
     public Train create(@RequestBody CreateTrainDto dto) {
         return trainService.create(dto);
     }
-    
+
     @DeleteMapping("delete/{trainId}")
     public String delete(@PathVariable Long trainId) {
         return trainService.delete(trainId);
@@ -54,28 +52,26 @@ public class TrainController {
 
     @GetMapping("/search")
     public Page<Train> search(@RequestBody SearchTrainDto dto,
-    @RequestParam int page,
-    @RequestParam int size ,
-    @RequestParam(defaultValue = "id") String sort,
-    @RequestParam(defaultValue = "desc") String direction
-    ) {
-        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC: Sort.Direction.DESC;
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam(defaultValue = "id") String sort,
+            @RequestParam(defaultValue = "desc") String direction) {
+        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
         Sort sortBy = Sort.by(sortDirection, sort);
         Pageable pageable = PageRequest.of(page, size, sortBy);
         return trainService.search(dto, pageable);
     }
- 
+
     @GetMapping("/all")
     public Page<Train> findALl(
-        @RequestParam int page,
-        @RequestParam int size ,
-        @RequestParam(defaultValue = "id") String sort,
-        @RequestParam(defaultValue = "desc") String direction
-    ) {
-        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC: Sort.Direction.DESC;
+            @RequestParam int page,
+            @RequestParam int size,
+            @RequestParam(defaultValue = "id") String sort,
+            @RequestParam(defaultValue = "desc") String direction) {
+        Sort.Direction sortDirection = direction.equalsIgnoreCase("asc") ? Sort.Direction.ASC : Sort.Direction.DESC;
         Sort sortBy = Sort.by(sortDirection, sort);
         Pageable pageable = PageRequest.of(page, size, sortBy);
         return trainService.findAll(pageable);
     }
-    
+
 }

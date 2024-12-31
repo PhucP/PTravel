@@ -10,10 +10,11 @@ import double_p.ptravel.module.user.service.IUserService;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,7 +34,8 @@ public class UserService implements IUserService {
     public User create(CreateUserDto dto) {
         User user = new User();
         user.setEmail(dto.getEmail());
-        user.setPassword(dto.getPassword());
+        PasswordEncoder passwordEncoder =  new BCryptPasswordEncoder(10);
+        user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setUsername(dto.getUserName());
 
         return userRepository.save(user);
@@ -72,7 +74,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void login(LoginUserDto dto) {
-        //login
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email).orElse(null);
     }
 }
