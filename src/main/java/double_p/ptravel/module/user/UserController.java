@@ -1,4 +1,4 @@
-package double_p.ptravel.module.user.controller;
+package double_p.ptravel.module.user;
 
 import double_p.ptravel.module.auth.dto.IntroSpectToken;
 import double_p.ptravel.module.auth.service.AuthService;

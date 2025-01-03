@@ -6,18 +6,18 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import double_p.ptravel.module.seat.ISeatRepository;
 import double_p.ptravel.module.seat.dto.CreateSeatDto;
 import double_p.ptravel.module.seat.dto.SearchSeatDto;
 import double_p.ptravel.module.seat.dto.UpdateSeatDto;
 import double_p.ptravel.module.seat.entity.Seat;
-import double_p.ptravel.module.seat.repository.ISeatRepository;
 import double_p.ptravel.module.seat.service.ISeatService;
 import double_p.ptravel.module.train.entity.Train;
 import double_p.ptravel.module.train.service.ITrainService;
 import jakarta.transaction.Transactional;
 
 @Service
-public class SeatService implements ISeatService{
+public class SeatService implements ISeatService {
     private final ISeatRepository seatRepository;
     private final ITrainService trainService;
 
@@ -41,13 +41,13 @@ public class SeatService implements ISeatService{
     @Override
     public Seat create(CreateSeatDto dto) {
         Train train = trainService.findbyId(dto.getTrainId());
-        if(train != null) {
-        Seat seat = new Seat();
-        seat.setNumber(dto.getNumber());
-        seat.setCarriageNumber(dto.getCarriageNumber());
-        seat.setStatus("Available");
-        seat.setTrain(train);
-        return seatRepository.save(seat);
+        if (train != null) {
+            Seat seat = new Seat();
+            seat.setNumber(dto.getNumber());
+            seat.setCarriageNumber(dto.getCarriageNumber());
+            seat.setStatus("Available");
+            seat.setTrain(train);
+            return seatRepository.save(seat);
         }
         return null;
     }
@@ -60,9 +60,9 @@ public class SeatService implements ISeatService{
     @Override
     public Seat update(Long seatId, UpdateSeatDto dto) {
         Seat seat = findById(seatId).orElse(null);
-        if(seat != null) {
+        if (seat != null) {
 
-        } 
+        }
         return null;
     }
 

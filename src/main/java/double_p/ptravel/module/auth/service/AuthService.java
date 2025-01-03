@@ -6,7 +6,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -25,45 +24,52 @@ import double_p.ptravel.module.auth.dto.IntroSpectToken;
 import double_p.ptravel.module.user.dto.LoginUserDto;
 import double_p.ptravel.module.user.entity.User;
 import double_p.ptravel.module.user.service.IUserService;
+import lombok.AccessLevel;
+import lombok.RequiredArgsConstructor;
+import lombok.experimental.FieldDefaults;
 import lombok.experimental.NonFinal;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class AuthService {
-    private final IUserService userService;
+    IUserService userService;
+    PasswordEncoder passwordEncoder;
 
     @NonFinal
     @Value("${jwt.signerKey}")
-    private String signerKey;
+    String signerKey;
 
-    public AuthService (IUserService userService) {
+    public AuthService(IUserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public boolean introspect(IntroSpectToken introSpectToken) throws JOSEException, ParseException {
         var token = introSpectToken.getToken();
         JWSVerifier verifier = new MACVerifier(signerKey);
         SignedJWT signedJWT = SignedJWT.parse(token);
-        Date expirationTime =  signedJWT.getJWTClaimsSet().getExpirationTime();
+        Date expirationTime = signedJWT.getJWTClaimsSet().getExpirationTime();
         return signedJWT.verify(verifier) && expirationTime.after(new Date());
     }
 
     public String login(LoginUserDto dto) {
         User user = validateUser(dto);
-        if(user!= null) {
+        if (user != null) {
             String token = generateToken(user);
             return token;
         }
- 
+
         System.out.println("not found");
         return null;
     }
 
     private User validateUser(LoginUserDto dto) {
         User user = userService.findByEmail(dto.getEmail());
-        if(user != null) {
+        if (user != null) {
             // check password
-            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
-            if(passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
+            if (passwordEncoder.matches(dto.getPassword(), user.getPassword())) {
                 return user;
             } else {
                 // throw exception
@@ -81,15 +87,14 @@ public class AuthService {
         JWSHeader jwsHeader = new JWSHeader(JWSAlgorithm.HS512);
 
         JWTClaimsSet jwtClaimsSet = new JWTClaimsSet.Builder()
-            .subject(user.getUsername())
-            .claim("userId", user.getId())
-            .claim("role", user.getRole())
-            .issuer("PTravel")
-            .issueTime(new Date())
-            .expirationTime(new Date(
-                Instant.now().plus(1, ChronoUnit.HOURS).toEpochMilli()
-            ))
-            .build();
+                .subject(user.getUsername())
+                .claim("userId", user.getId())
+                .claim("scope", user.getRole())
+                .issuer("PTravel")
+                .issueTime(new Date())
+                .expirationTime(new Date(
+                        Instant.now().plus(1, ChronoUnit.HOURS).toEpochMilli()))
+                .build();
 
         Payload payload = new Payload(jwtClaimsSet.toJSONObject());
 
@@ -97,7 +102,7 @@ public class AuthService {
         try {
             jwsObject.sign(new MACSigner(signerKey));
             return jwsObject.serialize();
-        } catch (JOSEException e){
+        } catch (JOSEException e) {
             System.out.println("can not create token");
             throw new RuntimeException(e);
         }

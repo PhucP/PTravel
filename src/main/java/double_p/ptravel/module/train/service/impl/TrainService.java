@@ -7,15 +7,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import double_p.ptravel.module.seat.entity.Seat;
+import double_p.ptravel.module.train.ITrainRepository;
 import double_p.ptravel.module.train.dto.CreateTrainDto;
 import double_p.ptravel.module.train.dto.SearchTrainDto;
 import double_p.ptravel.module.train.dto.UpdateTrainDto;
 import double_p.ptravel.module.train.entity.Train;
-import double_p.ptravel.module.train.repository.ITrainRepository;
 import double_p.ptravel.module.train.service.ITrainService;
 
 @Service
-public class TrainService implements ITrainService{
+public class TrainService implements ITrainService {
     private final ITrainRepository trainRepository;
 
     public TrainService(ITrainRepository trainRepository) {
@@ -44,7 +44,7 @@ public class TrainService implements ITrainService{
     @Override
     public Train update(Long trainId, UpdateTrainDto dto) {
         Train train = trainRepository.findById(trainId).orElse(null);
-        if(train!= null) {
+        if (train != null) {
             train.setName(dto.getName());
             train.setStatus(dto.getStatus());
             train.setCapacity(dto.getCapacity());

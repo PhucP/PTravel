@@ -1,4 +1,4 @@
-package double_p.ptravel.module.route.controller;
+package double_p.ptravel.module.route;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

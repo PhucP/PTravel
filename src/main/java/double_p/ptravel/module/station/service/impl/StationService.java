@@ -6,11 +6,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import double_p.ptravel.module.station.IStationRepository;
 import double_p.ptravel.module.station.dto.CreateStationDto;
 import double_p.ptravel.module.station.dto.SearchStationDto;
 import double_p.ptravel.module.station.dto.UpdateStationDto;
 import double_p.ptravel.module.station.entity.Station;
-import double_p.ptravel.module.station.repository.IStationRepository;
 import double_p.ptravel.module.station.service.IStationService;
 
 @Service
@@ -56,7 +56,7 @@ public class StationService implements IStationService {
     @Override
     public Station update(Long stationId, UpdateStationDto dto) {
         Station station = findById(stationId);
-        if(station!= null) {
+        if (station != null) {
             station.setAddress(dto.getAddress());
             station.setCity(dto.getCity());
             station.setCode(dto.getCode());
