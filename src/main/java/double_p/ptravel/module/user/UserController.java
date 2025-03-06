@@ -8,11 +8,15 @@ import double_p.ptravel.module.user.dto.SearchUserDto;
 import double_p.ptravel.module.user.dto.UpdateUserDto;
 import double_p.ptravel.module.user.entity.User;
 import double_p.ptravel.module.user.service.IUserService;
+import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import com.nimbusds.jose.JOSEException;
@@ -22,6 +26,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
     private final IUserService userService;
     private final AuthService authService;
@@ -33,7 +38,10 @@ public class UserController {
 
     @GetMapping("/getUser/{userId}")
     public Optional<User> findById(@PathVariable("userId") Long userId) {
-        return userService.findById(userId);
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        log.info("username: {}", auth.getName());
+        auth.getAuthorities().forEach(granteAuthority -> log.info(granteAuthority.getAuthority()));
+        return Optional.of(userService.findById(userId).orElseThrow(() -> new RuntimeException("User not found")));
     }
 
     @PostMapping("/register")
@@ -41,6 +49,7 @@ public class UserController {
         return userService.create(dto);
     }
 
+    @PostAuthorize("returnObject.id == authentication.id")
     @PatchMapping("/update/{userId}")
     public User update(
             @PathVariable("userId") Long userId,
@@ -53,6 +62,7 @@ public class UserController {
         return userService.remove(userId);
     }
 
+    @PreAuthorize("hasRole('admin')")
     @GetMapping("/all")
     public Page<User> getAllUser(
             @RequestParam int page,

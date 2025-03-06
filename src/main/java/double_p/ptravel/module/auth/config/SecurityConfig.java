@@ -32,7 +32,7 @@ public class SecurityConfig {
                         request -> request
                                 .requestMatchers(Endpoint.publicEndpoints).permitAll()
                                 .requestMatchers(Endpoint.authenticatedEndPoint).authenticated()
-                                // .requestMatchers(Endpoint.privateEndpoints).hasRole("admin")
+                                .requestMatchers(Endpoint.privateEndpoints).hasRole("admin")
                                 .anyRequest().authenticated())
                 .oauth2ResourceServer(oauth2 -> oauth2.jwt(jwtConfigurer -> jwtConfigurer
                         .jwtAuthenticationConverter(jwtAuthenticationConverter())

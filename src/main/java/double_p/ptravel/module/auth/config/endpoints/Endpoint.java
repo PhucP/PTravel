@@ -3,7 +3,6 @@ package double_p.ptravel.module.auth.config.endpoints;
 public class Endpoint {
         public static String[] publicEndpoints = {
                         // user
-                        "/user/getUser/**",
                         "/user/register",
                         "/user/search/**",
                         "/user/login",
@@ -55,6 +54,7 @@ public class Endpoint {
 
         public static String[] authenticatedEndPoint = {
                         // use
+                        "/user/getUser/**",
                         "/user/update/**",
                         "/user/delete/**",
         };

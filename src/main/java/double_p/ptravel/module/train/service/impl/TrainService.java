@@ -1,12 +1,9 @@
 package double_p.ptravel.module.train.service.impl;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import double_p.ptravel.module.seat.entity.Seat;
 import double_p.ptravel.module.train.ITrainRepository;
 import double_p.ptravel.module.train.dto.CreateTrainDto;
 import double_p.ptravel.module.train.dto.SearchTrainDto;
